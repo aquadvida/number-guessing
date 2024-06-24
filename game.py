@@ -1,14 +1,19 @@
 import random
-x = int(input("Number A"))
-y = int(input("Number B"))
+x = int(input("Enter lower boundary"))
+y = int(input("Enter higher boundary"))
 count = 0
 number = random.randint(x, y)
 
 z = int(input("Guess the number"))
 count = count + 1
 while z != number:
-    print("Wrong, try again!")
-    z = int(input("Guess the number"))
-    count = count + 1
+    if z > number:
+        print("Lower!")
+        z = int(input("Guess the number"))
+        count = count + 1
+    elif z < number:
+        print("Higher!")
+        z = int(input("Guess the number"))
+        count = count + 1
 
 print(number, "is correct! It took you", count, "tries!")
